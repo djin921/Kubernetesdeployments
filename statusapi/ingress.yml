@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: status-api-ingress
+  labels:
+    name: status-api-ingress
+spec:
+  rules:
+  - host: api.hypertheory.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: status-api-service
+            port: 
+              number: 80
